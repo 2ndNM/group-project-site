@@ -9,27 +9,25 @@ body {
 
 /* Header Layout */
 header {
-  background: #1e1e1e;
-  color: white;
+  background: #e6f0ff; /* Lightened header */
+  color: #000;
   padding: 1rem 1.5rem 0;
 }
 
 .header-content {
   display: flex;
   align-items: center;
-  justify-content: center; /* Center everything together */
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 0.5rem; /* Space between logo-title-logo */
+  gap: 1.5rem;
   text-align: center;
 }
 
 .title-block {
   flex: 1;
-  text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;     /* vertically centers text inside the block */
-  align-items: center;         /* makes sure text is centered */
+  align-items: center;
 }
 
 .title-block h1 {
@@ -40,28 +38,32 @@ header {
 .title-block p {
   margin: 0.25rem 0 0;
   font-size: 1rem;
-  color: #ddd;
-  text-align: center; /* This ensures the text aligns center */
+  color: #444;
+  text-align: center;
 }
 
 .logos img {
   height: 60px;
-  margin: 0; /* Removes default spacing */
+  margin: 0;
 }
 
-/* Search Bar in Top-Right */
-.search {
-  text-align: right;
-  margin-top: 0.5rem;
+/* Centered Search Section */
+.search-section {
+  background: #f9f9f9;
+  padding: 1rem 0;
+  text-align: center;
 }
 
 .search-bar {
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   font-size: 1rem;
-  border-radius: 4px;
-  border: none;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  max-width: 400px;
+  width: 90%;
 }
 
+/* Main Content */
 main {
   padding: 2rem;
   display: flex;
@@ -86,17 +88,30 @@ button:hover {
   display: none !important;
 }
 
-/* Team Section Adjustments */
+/* Project Info and Video Section */
+.project-info, .project-video {
+  background: #ffffff;
+  padding: 2rem;
+  margin: 2rem auto;
+  border-radius: 8px;
+  max-width: 1000px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.project-info p, .project-video p {
+  font-size: 1.1rem;
+}
+
+/* Team Section */
 .team {
   background: #fff;
-  padding: 2rem 3rem;  /* Add horizontal padding to keep it away from the edges */
-  margin: 2rem 0;
+  padding: 2rem 3rem;
+  margin: 2rem auto;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  order: 3; /* Keep it at the bottom */
-  max-width: 1200px;  /* Add max-width to prevent it from being too wide */
-  margin-left: auto;  /* Center it horizontally */
-  margin-right: auto; /* Center it horizontally */
+  order: 3;
+  max-width: 1200px;
 }
 
 /* Member Cards */
@@ -108,9 +123,9 @@ button:hover {
   flex: 1 1 250px;
   text-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  margin: 10px;  /* Add spacing between cards */
+  margin: 10px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  max-width: 350px;  /* Prevent cards from being too wide */
+  max-width: 350px;
 }
 
 .member-card:hover {
@@ -118,14 +133,14 @@ button:hover {
   box-shadow: 0 8px 16px rgba(0,0,0,0.15);
 }
 
-/* Flexbox grid for member cards */
 .team .member-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Center the cards */
-  gap: 1.5rem;  /* Space between cards */
+  justify-content: center;
+  gap: 1.5rem;
 }
 
+/* Member List */
 .member-list {
   background: #fff;
   padding: 2rem;
@@ -133,11 +148,11 @@ button:hover {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   order: 4;
+  text-align: center;
 }
 
 .member-list h2 {
   margin-bottom: 1rem;
-  text-align: center;
   font-size: 1.5rem;
   color: #333;
 }
@@ -150,21 +165,11 @@ button:hover {
 
 .member-list li {
   padding: 8px 0;
-  text-align: center;
   font-weight: 500;
 }
 
 .member-list li:not(:last-child) {
   border-bottom: 1px solid #ddd;
-}
-
-/* Project Info and Video Section */
-.project-info, .project-video {
-  margin-top: 2rem;
-}
-
-.project-info p, .project-video p {
-  font-size: 1.1rem;
 }
 
 /* Video Overlay Styles */
@@ -211,16 +216,16 @@ button:hover {
   cursor: pointer;
 }
 
-/* Ensure sections stay in the correct order */
+/* Section Order */
 .project-info { order: 1; }
 .project-video { order: 2; }
 .team { order: 3; }
 .member-list { order: 4; }
 
+/* Footer */
 footer {
   background-color: #1e1e1e;
   color: #fff;
   padding: 1rem;
   text-align: center;
 }
-
