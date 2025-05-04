@@ -7,55 +7,11 @@ body {
   color: #333;
 }
 
-/* Header Styles */
-header {
+header, footer {
   background: #1e1e1e;
   color: white;
-  padding: 1rem 2rem;
-  position: relative;  /* Make the header a positioning context for the search bar */
-}
-
-.header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logos {
-  display: flex;
-  align-items: center;
-}
-
-.school-logo {
-  width: 50px;
-  height: auto;
-  margin-right: 1rem;
-}
-
-.cea-logo {
-  width: 50px;
-  height: auto;
-  margin-left: 1rem;
-}
-
-h1 {
-  font-size: 2rem;
-  margin: 0;
-}
-
-/* Adjust Search Bar to Upper Right Corner */
-.search {
-  position: absolute;
-  top: 20px; /* Adjust top position */
-  right: 20px; /* Adjust right position */
-}
-
-.search-bar {
-  padding: 0.5rem;
-  font-size: 1rem;
-  border-radius: 4px;
-  border: 1px solid #ddd;
-  width: 200px;
+  text-align: center;
+  padding: 1rem;
 }
 
 main {
