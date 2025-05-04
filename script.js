@@ -1,12 +1,20 @@
 function showMore() {
-  const moreInfo = document.getElementById("moreInfo");
-  moreInfo.classList.toggle("hidden");
+  const moreInfo = document.getElementById('moreInfo');
+  moreInfo.classList.toggle('hidden');
 }
 
 function openVideo() {
-  document.getElementById("videoOverlay").classList.remove("hidden");
+  const overlay = document.getElementById('videoOverlay');
+  overlay.classList.remove('hidden');
+  overlay.classList.remove('fade-out');
+  overlay.classList.add('fade-in');
 }
 
 function closeVideo() {
-  document.getElementById("videoOverlay").classList.add("hidden");
+  const overlay = document.getElementById('videoOverlay');
+  overlay.classList.remove('fade-in');
+  overlay.classList.add('fade-out');
+  setTimeout(() => {
+    overlay.classList.add('hidden');
+  }, 300); // Match duration of fade-out
 }
