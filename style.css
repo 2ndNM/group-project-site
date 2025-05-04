@@ -7,55 +7,56 @@ body {
   color: #333;
 }
 
-/* Header Styles */
+/* Header Layout */
 header {
   background: #1e1e1e;
   color: white;
-  padding: 1rem 2rem;
-  position: relative;  /* Make the header a positioning context for the search bar */
+  padding: 1rem 1.5rem 0;
 }
 
 .header-content {
   display: flex;
+  align-items: center;         /* vertically centers all items */
   justify-content: space-between;
-  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-.logos {
+.title-block {
+  flex: 1;
+  text-align: center;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;     /* vertically centers text inside the block */
+  align-items: center;         /* makes sure text is centered */
 }
 
-.school-logo {
-  width: 50px;
-  height: auto;
-  margin-right: 1rem;
-}
-
-.cea-logo {
-  width: 50px;
-  height: auto;
-  margin-left: 1rem;
-}
-
-h1 {
-  font-size: 2rem;
+.title-block h1 {
   margin: 0;
+  font-size: 1.8rem;
 }
 
-/* Adjust Search Bar to Upper Right Corner */
+.title-block p {
+  margin: 0.25rem 0 0;
+  font-size: 1rem;
+  color: #ddd;
+}
+
+.logos img {
+  height: 60px;
+}
+
+/* Search Bar in Top-Right */
 .search {
-  position: absolute;
-  top: 20px; /* Adjust top position */
-  right: 20px; /* Adjust right position */
+  text-align: right;
+  margin-top: 0.5rem;
 }
 
 .search-bar {
   padding: 0.5rem;
   font-size: 1rem;
   border-radius: 4px;
-  border: 1px solid #ddd;
-  width: 200px;
+  border: none;
 }
 
 main {
