@@ -16,6 +16,8 @@ header, footer {
 
 main {
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
 button {
@@ -34,6 +36,28 @@ button:hover {
 
 .hidden {
   display: none !important;
+}
+
+.team {
+  background: #fff;
+  padding: 2rem;
+  margin: 2rem 0;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.member-card {
+  background: #0056b3;
+  color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  flex: 1 1 200px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.member-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
 }
 
 /* New Member List Section */
@@ -111,7 +135,7 @@ button:hover {
   right: -10px;
   background: #fff;
   color: #333;
-  border: none;
+  border: none; 
   font-size: 24px;
   line-height: 1;
   border-radius: 50%;
@@ -120,3 +144,9 @@ button:hover {
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
   cursor: pointer;
 }
+
+/* 2) Assign visual order to each section */
+.project-info  { order: 1; }
+.project-video { order: 2; }
+.member-list   { order: 3; }
+.team          { order: 4; }  /* Forces the “Meet the Team” cards to appear at the bottom */
