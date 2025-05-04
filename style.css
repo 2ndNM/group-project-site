@@ -38,35 +38,53 @@ button:hover {
   display: none !important;
 }
 
+/* Team Section Adjustments */
 .team {
   background: #fff;
-  padding: 2rem;
+  padding: 2rem 3rem;  /* Add horizontal padding to keep it away from the edges */
   margin: 2rem 0;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  order: 3; /* Keep it at the bottom */
+  max-width: 1200px;  /* Add max-width to prevent it from being too wide */
+  margin-left: auto;  /* Center it horizontally */
+  margin-right: auto; /* Center it horizontally */
 }
 
+/* Member Cards */
 .member-card {
   background: #0056b3;
   color: #fff;
   padding: 1.5rem;
   border-radius: 8px;
-  flex: 1 1 200px;
+  flex: 1 1 250px;
   text-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin: 10px;  /* Add spacing between cards */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  max-width: 350px;  /* Prevent cards from being too wide */
 }
+
 .member-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0,0,0,0.15);
 }
 
-/* New Member List Section */
+/* Flexbox grid for member cards */
+.team .member-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center the cards */
+  gap: 1.5rem;  /* Space between cards */
+}
+
 .member-list {
   background: #fff;
   padding: 2rem;
   margin-top: 2rem;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  order: 4;
 }
 
 .member-list h2 {
@@ -145,8 +163,8 @@ button:hover {
   cursor: pointer;
 }
 
-/* 2) Assign visual order to each section */
-.project-info  { order: 1; }
+/* Ensure sections stay in the correct order */
+.project-info { order: 1; }
 .project-video { order: 2; }
-.member-list   { order: 3; }
-.team          { order: 4; }  /* Forces the “Meet the Team” cards to appear at the bottom */
+.team { order: 3; }
+.member-list { order: 4; }
