@@ -19,7 +19,7 @@ header {
   align-items: center;
   justify-content: center; /* Center everything together */
   flex-wrap: wrap;
-  gap: 1.5rem; /* Space between logo-title-logo */
+  gap: 0.5rem; /* Space between logo-title-logo */
   text-align: center;
 }
 
