@@ -1,46 +1,61 @@
 <script>
-  // Show more functionality for project info
+  document.addEventListener("DOMContentLoaded", () => {
+    const overlay = document.getElementById("videoOverlay");
+
+    // Close video when clicking outside content
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) {
+        closeVideo();
+      }
+    });
+
+    // Search filter logic
+    const searchInput = document.getElementById("site-search");
+    if (searchInput) {
+      searchInput.addEventListener("input", function () {
+        const query = this.value.toLowerCase().trim();
+
+        const sections = [
+          ...document.querySelectorAll(".member-card"),
+          ...document.querySelectorAll(".project-info"),
+          ...document.querySelectorAll(".project-video")
+        ];
+
+        sections.forEach((el) => {
+          const text = el.textContent.toLowerCase();
+          const match = text.includes(query);
+
+          el.style.display = match || query === "" ? "" : "none";
+
+          // OPTIONAL: Highlight matching text (requires original HTML backup)
+          // Uncomment if you want <mark> highlights:
+          /*
+          if (!el.dataset.original) {
+            el.dataset.original = el.innerHTML;
+          } else {
+            el.innerHTML = el.dataset.original;
+          }
+
+          if (match && query) {
+            const regex = new RegExp(`(${query})`, 'gi');
+            el.innerHTML = el.innerHTML.replace(regex, '<mark>$1</mark>');
+          }
+          */
+        });
+      });
+    }
+  });
+
   function showMore() {
     document.getElementById("moreInfo").classList.toggle("hidden");
   }
 
-  // Open the video overlay
   function openVideo() {
     const overlay = document.getElementById("videoOverlay");
     overlay.classList.remove("hidden");
   }
 
-  // Close video when clicking outside the video content
-  document.addEventListener("DOMContentLoaded", () => {
-    const overlay = document.getElementById("videoOverlay");
-    overlay.addEventListener("click", (e) => {
-      // Close when clicking on the overlay background (not the video itself)
-      if (e.target === overlay) {
-        closeVideo();
-      }
-    });
-  });
-
-  // Close the video overlay
   function closeVideo() {
     document.getElementById("videoOverlay").classList.add("hidden");
   }
-
-  // Search functionality for the website
-  document.getElementById("site-search").addEventListener("input", function () {
-    const query = this.value.toLowerCase();
-    
-    // Function to filter sections based on query
-    const filterSections = (selector) => {
-      document.querySelectorAll(selector).forEach((el) => {
-        const text = el.textContent.toLowerCase();
-        el.style.display = text.includes(query) ? "" : "none";
-      });
-    };
-
-    // Filter team members, project info, and project video
-    filterSections(".member-card");
-    filterSections(".project-info");
-    filterSections(".project-video");
-  });
 </script>
