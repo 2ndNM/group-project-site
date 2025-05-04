@@ -1,3 +1,4 @@
+/* Base Styling */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -7,11 +8,11 @@ body {
   color: #333;
 }
 
-/* Header Layout */
+/* Header Styling */
 header {
   background: #e6f0ff; /* Lightened header */
   color: #000;
-  padding: 1rem 1.5rem 0;
+  padding: 1.5rem 1rem;
 }
 
 .header-content {
@@ -19,14 +20,16 @@ header {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 1rem;
   text-align: center;
 }
 
 .title-block {
   flex: 1;
+  text-align: center;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
@@ -36,31 +39,30 @@ header {
 }
 
 .title-block p {
-  margin: 0.25rem 0 0;
+  margin: 0.3rem 0 0;
   font-size: 1rem;
-  color: #444;
+  color: #333;
   text-align: center;
 }
 
+/* Logos */
 .logos img {
   height: 60px;
   margin: 0;
 }
 
-/* Centered Search Section */
+/* Search Bar Section */
 .search-section {
-  background: #f9f9f9;
-  padding: 1rem 0;
   text-align: center;
+  margin-top: 1rem;
 }
 
 .search-bar {
   padding: 0.5rem 1rem;
   font-size: 1rem;
-  border-radius: 6px;
+  width: 250px;
+  border-radius: 4px;
   border: 1px solid #ccc;
-  max-width: 400px;
-  width: 90%;
 }
 
 /* Main Content */
@@ -68,8 +70,10 @@ main {
   padding: 2rem;
   display: flex;
   flex-direction: column;
+  gap: 2rem;
 }
 
+/* Buttons */
 button {
   margin-top: 1rem;
   padding: 0.5rem 1rem;
@@ -84,37 +88,28 @@ button:hover {
   background: #003f88;
 }
 
+/* Toggle Hidden Content */
 .hidden {
   display: none !important;
-}
-
-/* Project Info and Video Section */
-.project-info, .project-video {
-  background: #ffffff;
-  padding: 2rem;
-  margin: 2rem auto;
-  border-radius: 8px;
-  max-width: 1000px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-  text-align: center;
-}
-
-.project-info p, .project-video p {
-  font-size: 1.1rem;
 }
 
 /* Team Section */
 .team {
   background: #fff;
   padding: 2rem 3rem;
-  margin: 2rem auto;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  order: 3;
   max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Member Cards */
+.member-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
 .member-card {
   background: #0056b3;
   color: #fff;
@@ -123,7 +118,6 @@ button:hover {
   flex: 1 1 250px;
   text-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  margin: 10px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   max-width: 350px;
 }
@@ -133,26 +127,17 @@ button:hover {
   box-shadow: 0 8px 16px rgba(0,0,0,0.15);
 }
 
-.team .member-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-}
-
 /* Member List */
 .member-list {
   background: #fff;
   padding: 2rem;
-  margin-top: 2rem;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  order: 4;
-  text-align: center;
 }
 
 .member-list h2 {
   margin-bottom: 1rem;
+  text-align: center;
   font-size: 1.5rem;
   color: #333;
 }
@@ -165,6 +150,7 @@ button:hover {
 
 .member-list li {
   padding: 8px 0;
+  text-align: center;
   font-weight: 500;
 }
 
@@ -172,7 +158,15 @@ button:hover {
   border-bottom: 1px solid #ddd;
 }
 
-/* Video Overlay Styles */
+/* Project Info + Video */
+.project-info, .project-video {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Overlay (for Video Lightbox) */
 .overlay {
   position: fixed;
   top: 0;
@@ -187,45 +181,23 @@ button:hover {
 }
 
 .overlay-content {
-  position: relative;
   background: white;
   padding: 1rem;
   border-radius: 8px;
+  max-width: 700px;
+  width: 90%;
 }
 
 .overlay-content video {
   width: 100%;
   height: auto;
   border-radius: 8px;
-  max-width: 700px;
 }
-
-.close-btn {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  background: #fff;
-  color: #333;
-  border: none; 
-  font-size: 24px;
-  line-height: 1;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-}
-
-/* Section Order */
-.project-info { order: 1; }
-.project-video { order: 2; }
-.team { order: 3; }
-.member-list { order: 4; }
 
 /* Footer */
 footer {
-  background: #e6f0ff; /* Matches header background */
-  color: #000;          /* Black text for contrast */
+  background-color: #e6f0ff; /* Match header color */
+  color: #000;
   padding: 1rem;
   text-align: center;
 }
