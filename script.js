@@ -8,5 +8,21 @@ function openVideo() {
 }
 
 function closeVideo() {
-  document.getElementById("videoOverlay").classList.add("hidden");
+  const overlay = document.getElementById("videoOverlay");
+  const video = overlay.querySelector("video");
+  overlay.classList.add("hidden");
+  if (video) {
+    video.pause();
+  }
 }
+
+// Close when clicking outside the video
+document.addEventListener("DOMContentLoaded", function () {
+  const overlay = document.getElementById("videoOverlay");
+
+  overlay.addEventListener("click", function (e) {
+    if (e.target === overlay) {
+      closeVideo();
+    }
+  });
+});
