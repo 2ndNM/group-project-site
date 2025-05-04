@@ -18,11 +18,12 @@ function closeVideo() {
 
   // Delay hiding the overlay to let animation finish
   setTimeout(() => {
+    // Hide the overlay and pause the video after the fade-out completes
     overlay.classList.add("hidden");
     if (video) {
       video.pause();
     }
-  }, 300); // Match animation duration (0.3s)
+  }, 300); // Make sure this matches your animation duration
 }
 
 // Close when clicking outside the video
