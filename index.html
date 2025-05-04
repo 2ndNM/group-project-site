@@ -1,100 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Overview</title>
-  <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Group Project</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
   <header>
-    <div class="header-content">
-      <!-- Logos -->
-      <div class="logos">
-        <img src="school-logo.png" alt="School Logo" class="school-logo">
-        <img src="cea-logo.png" alt="CEA Department Logo" class="cea-logo">
-      </div>
-      <!-- Title -->
-      <h1>Project Name</h1>
-      <!-- Search Bar -->
-      <input type="text" id="search-bar" placeholder="Search..." class="search-bar">
+  <header>
+  <div class="header-content">
+    <div class="logos">
+      <img src="school-logo.png" alt="School Logo" class="school-logo">
+      <img src="cea-logo.png" alt="CEA Department Logo" class="cea-logo">
     </div>
+    <h1>Project Name</h1>
+    <input type="text" id="search-bar" placeholder="Search..." class="search-bar">
+  </div>
+</header>
+    <h1>PAGLALAKBAY SA HINABING TALUNTON</h1>
+    <p>Principles of Transportation Engineering · 3CE-2</p>
   </header>
 
   <main>
-    <!-- About the Project Section -->
-    <section class="about-project">
-      <h2>About the Project</h2>
-      <p>This section will explain the project in detail. It's an in-depth look at the goals, objectives, and scope of the project.</p>
-    </section>
-
-    <!-- Project Video Overview Section -->
-    <section class="project-video-overview">
-      <h2>Project Video Overview</h2>
-      <p>Watch the video for an overview of the project. This will give you a visual representation of the work and effort put into the project.</p>
-      <button class="watch-video-btn">Watch Video</button>
-    </section>
-
     <!-- Project Info Section -->
     <section class="project-info">
-      <h2>Project Information</h2>
-      <p>Here is the detailed project information. This section includes information like technologies used, timeline, objectives, and more.</p>
-    </section>
-
-    <!-- Team Section -->
-    <section class="team">
-      <h2>Meet the Team</h2>
-      <div class="member-grid">
-        <!-- Member Cards Here -->
-        <div class="member-card">
-          <h3>John Doe</h3>
-          <p>Project Manager</p>
-        </div>
-        <div class="member-card">
-          <h3>Jane Smith</h3>
-          <p>Lead Developer</p>
-        </div>
-        <div class="member-card">
-          <h3>Michael Johnson</h3>
-          <p>Designer</p>
-        </div>
-        <!-- Add more members as needed -->
+      <h2>About the Project</h2>
+      <p>This project explores ... [brief description]</p>
+      <button onclick="showMore()">Show More</button>
+      <div id="moreInfo" class="hidden">
+        <p>Here’s some extended info about the project. It can be toggled with JavaScript.</p>
       </div>
     </section>
 
-    <!-- Member List Section -->
+    <!-- Video Section with Lightbox -->
+    <section class="project-video">
+      <h2>Project Overview Video</h2>
+      <button onclick="openVideo()">▶ Watch Video</button>
+
+      <div id="videoOverlay" class="overlay hidden">
+        <div class="overlay-content">
+          <video controls width="700">
+            <source src="video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </section>
+    <section class="team">
+      <h2>Meet the Team</h2>
+      <div class="member-grid">
+        <div class="member-card">
+          <h3>Dominic D. Roraldo</h3>
+          <p>Role: Leader</p>
+        </div>
+        <div class="member-card">
+          <h3>Kieth Bryan O. Padilla</h3>
+          <p>Role: Assistant Leader</p>
+        </div>
+        <div class="member-card">
+          <h3>Mark Christian S. Abel</h3>
+          <p>Role: Core Planner</p>
+        </div>
+      </div> <!-- End of member-grid -->
+    </section>
+    <!-- New Members List Section (Now at the Bottom) -->
     <section class="member-list">
-      <h2>All Team Members</h2>
+      <h2>Team Members</h2>
       <ul>
-        <li>John Doe - Project Manager</li>
-        <li>Jane Smith - Lead Developer</li>
-        <li>Michael Johnson - Designer</li>
-        <!-- Add all members here -->
+        <li></li>
+        <li>Maria Santos — Researcher</li>
+        <li>Alex Kim — Developer</li>
+        <li>Sophia Lee — Designer</li>
+        <li>David Park — Tester</li>
+        <!-- add as many names as you like -->
       </ul>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Project Team. All Rights Reserved.</p>
+    <p>© 2025 New Era university · 3CE-2</p>
   </footer>
-
-  <!-- Optional Video Overlay for Project Video (if using video modal) -->
-  <div class="overlay hidden" id="video-overlay">
-    <div class="overlay-content">
-      <video src="project-video.mp4" controls></video>
-      <button class="close-btn" id="close-video-btn">X</button>
-    </div>
-  </div>
-
-  <script>
-    // Optional: Add functionality to the video overlay
-    document.getElementById('watch-video-btn').addEventListener('click', function() {
-      document.getElementById('video-overlay').classList.remove('hidden');
-    });
-
-    document.getElementById('close-video-btn').addEventListener('click', function() {
-      document.getElementById('video-overlay').classList.add('hidden');
-    });
-  </script>
 </body>
 </html>
