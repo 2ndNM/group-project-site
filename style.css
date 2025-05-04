@@ -16,10 +16,11 @@ header {
 
 .header-content {
   display: flex;
-  align-items: center;         /* vertically centers all items */
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center; /* Center everything together */
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.5rem; /* Space between logo-title-logo */
+  text-align: center;
 }
 
 .title-block {
@@ -40,10 +41,12 @@ header {
   margin: 0.25rem 0 0;
   font-size: 1rem;
   color: #ddd;
+  text-align: center; /* This ensures the text aligns center */
 }
 
 .logos img {
   height: 60px;
+  margin: 0; /* Removes default spacing */
 }
 
 /* Search Bar in Top-Right */
@@ -213,3 +216,11 @@ button:hover {
 .project-video { order: 2; }
 .team { order: 3; }
 .member-list { order: 4; }
+
+footer {
+  background-color: #1e1e1e;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
