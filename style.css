@@ -109,3 +109,13 @@ button:hover {
   from { opacity: 1; }
   to { opacity: 0; }
 }
+
+#videoPreview {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition for hover effects */
+}
+
+#videoPreview:hover {
+  box-shadow: 0 0 8px rgba(0,0,0,0.3); /* Adds shadow when hovering */
+  transform: scale(1.02); /* Slightly enlarges the video on hover */
+}

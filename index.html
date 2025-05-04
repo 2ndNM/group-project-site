@@ -38,20 +38,34 @@
     </section>
 
     <section class="project-video">
-      <h2>Project Overview Video</h2>
-      <button onclick="openVideo()">▶ Watch Video</button>
+  <h2>Project Overview Video</h2>
 
-      <div id="videoOverlay" class="overlay hidden">
-  <div class="overlay-content">
-    <span class="close-btn" onclick="closeVideo()">×</span>
-    <video controls width="700">
-      <source src="video.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
+  <!-- Inline preview -->
+  <video
+    id="videoPreview"
+    width="400"
+    poster="thumbnail.jpg"
+    muted
+    controls
+    style="cursor: pointer;"
+    onclick="openVideo()"
+  >
+    <source src="video.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Lightbox overlay stays the same -->
+  <div id="videoOverlay" class="overlay hidden">
+    <div class="overlay-content">
+      <span class="close-btn" onclick="closeVideo()">×</span>
+      <video controls width="700">
+        <source src="video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
   </div>
-</div>
+</section>
 
-    </section>
   </main>
 
   <footer>

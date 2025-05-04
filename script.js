@@ -4,27 +4,31 @@ function showMore() {
 }
 
 function openVideo() {
-  console.log('openVideo() called');  // ← here
+  console.log('openVideo() called');
+  const preview = document.getElementById("videoPreview");
+  if (preview) preview.pause();              // ← pause the preview
   const overlay = document.getElementById("videoOverlay");
   overlay.classList.remove("hidden", "fade-out");
   overlay.classList.add("fade-in");
-  console.log('Classes after open:', overlay.className);  // ← and here
+  console.log('Classes after open:', overlay.className);
 }
 
 function closeVideo() {
-  console.log('closeVideo() called');  // ← here
+  console.log('closeVideo() called');
   const overlay = document.getElementById("videoOverlay");
-  const video = overlay.querySelector("video");
+  const lightboxVideo = overlay.querySelector("video");
+  const preview = document.getElementById("videoPreview");
 
   overlay.classList.remove("fade-in");
   overlay.classList.add("fade-out");
-  console.log('Classes before hide timeout:', overlay.className);  // ← and here
+  console.log('Classes before hide timeout:', overlay.className);
 
   setTimeout(() => {
     overlay.classList.add("hidden");
-    if (video) video.pause();
-    console.log('Classes after hide:', overlay.className);  // ← and here
-  }, 300);  // Ensure this matches your fade-out animation duration (0.3s)
+    if (lightboxVideo) lightboxVideo.pause();
+    if (preview) preview.play();            // ← resume preview
+    console.log('Classes after hide:', overlay.className);
+  }, 300);
 }
 
 // Close when clicking outside the video
