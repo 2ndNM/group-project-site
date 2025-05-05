@@ -147,10 +147,10 @@ button:hover {
   padding: 0;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-template-columns: repeat(5, 1fr); /* 5 columns */
   grid-template-rows: repeat(17, auto); /* Ensure first column is 17 items */
   gap: 10px 40px; /* Row gap 10px, column gap 40px */
-  max-width: 800px;
+  max-width: 1000px; /* Increase the max-width for 5 columns */
 }
 
 .member-list li {
