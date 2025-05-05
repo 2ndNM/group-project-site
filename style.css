@@ -143,13 +143,16 @@ button:hover {
 
 .overlay-content {
   position: relative;
-  max-width: 80vw;
-  max-height: 80vh;
+  max-width: 70vw;
+  max-height: 60vh;
+  background-color: #fff;
+  padding: 20px;
 }
 
 .overlay-content video {
   width: 100%;
   height: auto;
+  max-height: 50vh;
 }
 
 .close-btn {
