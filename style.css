@@ -94,128 +94,73 @@ button:hover {
 }
 
 /* Team Section */
-.team {
-  background: #fff;
-  padding: 2rem 3rem;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.member-grid {
+.team .member-grid {
   display: flex;
   flex-wrap: wrap;
+  gap: 1rem;
   justify-content: center;
-  gap: 1.5rem;
 }
 
 .member-card {
-  background: #0056b3;
-  color: #fff;
-  padding: 1.5rem;
-  border-radius: 8px;
-  flex: 1 1 250px;
-  text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  max-width: 350px;
-}
-
-.member-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-}
-
-/* Member List */
-.member-list {
   background: #fff;
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.member-list h2 {
-  margin-bottom: 1rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   text-align: center;
-  font-size: 1.5rem;
-  color: #333;
+  width: 200px;
 }
 
+/* Member List Section */
 .member-list ul {
   list-style: none;
   padding: 0;
-  margin: 0 auto;
+  margin: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 columns */
-  gap: 10px 40px; /* Row gap 10px, column gap 40px */
-  max-width: 1000px; /* Adjust width for 3 columns */
+  gap: 15px;
 }
 
 .member-list li {
   padding: 5px 0;
-}
-
-/* Project Info + Video */
-.project-info, .project-video {
-  background: #fff;
-  padding: 2rem;
+  background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Overlay (for Video Lightbox) */
+/* Video Lightbox Styles */
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw; 
-  height: 100vh; /* fill the entire viewport */
-  display: flex;
-  justify-content: center; /* center horizontally */
-  align-items: center;     /* center vertically */
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 1000;
 }
 
-/* Video Container */
 .overlay-content {
   position: relative;
-  max-width: 80vw; /* Adjusted size */
-  max-height: 80vh; /* Adjusted size */
-  width: auto;
-  height: auto;
+  max-width: 80vw;
+  max-height: 80vh;
 }
 
-/* The video itself */
 .overlay-content video {
   width: 100%;
   height: auto;
-  max-height: 100%;
-  border-radius: 8px;
 }
 
-/* Close button (optional) */
 .close-btn {
   position: absolute;
   top: -10px;
   right: -10px;
   background: #fff;
-  color: #333;
   border: none;
   font-size: 24px;
-  line-height: 1;
-  border-radius: 50%;
   width: 32px;
   height: 32px;
+  border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 0 6px rgba(0,0,0,0.3);
-}
-
-/* Footer */
-footer {
-  background-color: #e6f0ff; /* Match header color */
-  color: #000;
-  padding: 1rem;
-  text-align: center;
 }
