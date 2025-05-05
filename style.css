@@ -147,9 +147,10 @@ button:hover {
   padding: 0;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 columns */
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-template-rows: repeat(17, auto); /* Ensure first column is 17 items */
   gap: 10px 40px; /* Row gap 10px, column gap 40px */
-  max-width: 1000px; /* Increase the max-width for 5 columns */
+  max-width: 800px;
 }
 
 .member-list li {
@@ -169,53 +170,3 @@ button:hover {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw; 
-  height: 100vh; /* fill the entire viewport */
-  display: flex;
-  justify-content: center; /* center horizontally */
-  align-items: center;     /* center vertically */
-  background: rgba(0, 0, 0, 0.8);
-  z-index: 1000;
-}
-
-/* Video Container */
-.overlay-content {
-  position: relative;
-  max-width: 90vw; 
-  max-height: 90vh;
-  width: auto;
-  height: auto;
-}
-
-/* The video itself */
-.overlay-content video {
-  width: 100%;
-  height: auto;
-  max-height: 100%;
-  border-radius: 8px;
-}
-
-/* Close button (optional) */
-.close-btn {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  background: #fff;
-  color: #333;
-  border: none;
-  font-size: 24px;
-  line-height: 1;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  cursor: pointer;
-  box-shadow: 0 0 6px rgba(0,0,0,0.3);
-}
-
-/* Footer */
-footer {
-  background-color: #e6f0ff; /* Match header color */
-  color: #000;
-  padding: 1rem;
-  text-align: center;
-}
