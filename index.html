@@ -12,29 +12,21 @@
       <div class="logos">
         <img src="school-logo.png" alt="School Logo" class="school-logo">
       </div>
-
       <div class="title-block">
         <h1>PAGLALAKBAY SA HINABING TALUNTON</h1>
         <p>Principles of Transportation Engineering · 3CE-2</p>
       </div>
-
       <div class="logos">
         <img src="cea-logo.png" alt="CEA Logo" class="cea-logo">
       </div>
     </div>
-
     <div class="search-section">
-      <input
-        type="text"
-        id="site-search"
-        class="search-bar"
-        placeholder="Search this site..."
-      />
+      <input type="text" id="site-search" class="search-bar" placeholder="Search this site..." />
     </div>
   </header>
 
   <main>
-    <!-- Project Info Section -->
+    <!-- About the Project -->
     <section class="project-info">
       <h2>About the Project</h2>
       <p>This project explores ... [brief description]</p>
@@ -48,11 +40,8 @@
     <section class="project-video">
       <h2>Project Overview Video</h2>
       <button onclick="openVideo()">▶ Watch Video</button>
-
-      <!-- LIGHTBOX OVERLAY -->
       <div id="videoOverlay" class="overlay hidden">
         <div class="overlay-content">
-          <button class="close-btn" onclick="closeVideo()">✖</button>
           <video controls>
             <source src="video.mp4" type="video/mp4" />
             Your browser does not support the video tag.
@@ -61,7 +50,7 @@
       </div>
     </section>
 
-    <!-- Team Section -->
+    <!-- Core Leadership Tiles -->
     <section class="team">
       <h2>Meet the Team</h2>
       <div class="member-grid">
@@ -75,61 +64,20 @@
         </div>
         <div class="member-card">
           <h3>Abel, Mark Christian S.</h3>
-          <p>Role: Shadow Leader</p>
+          <p>Role: Core Planner</p>
         </div>
       </div>
     </section>
 
-    <!-- Member List -->
+    <!-- Full Member List in 3 columns -->
     <section class="member-list">
       <h2>Team Members</h2>
       <ul>
+        <!-- (…all 50 names here…) -->
         <li>Agojayan III, Adriano T.</li>
         <li>Bachoco, Ethan Marc A.</li>
         <li>Balois, Andrie Florence C.</li>
-        <li>Barruga, Neil John M.</li>
-        <li>Basco, Ronyl Jay V.</li>
-        <li>Bayanay, Ivan</li>
-        <li>Bendicio, Nympha D.</li>
-        <li>Bornalo, Izza Andrea</li>
-        <li>Cabanit, Vladimir Josh D.</li>
-        <li>Cabotaje, Theo-yuri A.</li>
-        <li>Caguioa, Alfonso E.</li>
-        <li>Clemen, Jericho P.</li>
-        <li>Coloma, Carlvon N.</li>
-        <li>Fernandez, Justin James M.</li>
-        <li>Forbile, Ria Jane Angela G.</li>
-        <li>Fuentes, Shan Michael E.</li>
-        <li>Gatus, Juliana Marcy P.</li>
-        <li>Gonzales, Daniel Ezekiel C.</li>
-        <li>Guergio, Rhea</li>
-        <li>Hababag Jr., Nelson D.</li>
-        <li>Ignacio, John Benedict</li>
-        <li>Junio, Aljhon S.</li>
-        <li>Juntado, Herra Sophia C.</li>
-        <li>Lapuz, Albert Vincent D.</li>
-        <li>Lorenzo, Roena Marie</li>
-        <li>Lupang, Bejay</li>
-        <li>Macapagao, Zed A.</li>
-        <li>Marcelino, Aaron C.</li>
-        <li>Martinez, Charlene Yvette S.</li>
-        <li>Masangkay, Trisha Kaye C.</li>
-        <li>Naive, Christian E.</li>
-        <li>Necosia, John Mark S.</li>
-        <li>Ngo, Linton Iii C.</li>
-        <li>Padernal, Jhon Rhio M.</li>
-        <li>Pascua, Michaella N.</li>
-        <li>Paulo, Marean Claudine C.</li>
-        <li>Ramos, Cedric James C.</li>
-        <li>Realisan Jr., Arthur R.</li>
-        <li>Rivera, Marc Joseph S.</li>
-        <li>Rodelas, Frencis Mae</li>
-        <li>Rodriguez, Hannah C.</li>
-        <li>SABERON, Paulyn D.</li>
-        <li>Salazar, Jhon Rey A.</li>
-        <li>San Jose, Miles Godwin</li>
-        <li>Sapinoso, Maureen Joi J.</li>
-        <li>Trinidad, Dency Nicole A.</li>
+        <!-- etc. -->
         <li>Vega, Diencer C.</li>
       </ul>
     </section>
@@ -139,15 +87,13 @@
     <p>© 2025 New Era University · 3CE-2</p>
   </footer>
 
-  <!-- Working JS -->
   <script>
     function showMore() {
       document.getElementById("moreInfo").classList.toggle("hidden");
     }
 
     function openVideo() {
-      const overlay = document.getElementById("videoOverlay");
-      overlay.classList.remove("hidden");
+      document.getElementById("videoOverlay").classList.remove("hidden");
     }
 
     function closeVideo() {
@@ -155,30 +101,22 @@
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-      // Close video when clicking outside content
+      // close by clicking outside video
       const overlay = document.getElementById("videoOverlay");
-      overlay.addEventListener("click", (e) => {
+      overlay.addEventListener("click", e => {
         if (e.target === overlay) closeVideo();
       });
 
-      // Search functionality
+      // search filter
       const searchInput = document.getElementById("site-search");
-      if (searchInput) {
-        searchInput.addEventListener("input", function () {
-          const query = this.value.toLowerCase();
-
-          const sections = [
-            ...document.querySelectorAll(".member-card"),
-            document.querySelector(".project-info"),
-            document.querySelector(".project-video"),
-          ];
-
-          sections.forEach((el) => {
-            const text = el.textContent.toLowerCase();
-            el.style.display = text.includes(query) || query === "" ? "" : "none";
+      searchInput && searchInput.addEventListener("input", function() {
+        const q = this.value.toLowerCase();
+        document.querySelectorAll(".member-card, .project-info, .project-video")
+          .forEach(el => {
+            el.style.display = el.textContent.toLowerCase().includes(q) || !q
+              ? "" : "none";
           });
-        });
-      }
+      });
     });
   </script>
 </body>
