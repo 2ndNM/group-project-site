@@ -2,73 +2,136 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Paglalakbay Sa Hinabing Talunton</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Project Portfolio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+    }
+
+    header {
+      background-color: #007BFF;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .search-container {
+      display: flex;
+      justify-content: center;
+      margin: 20px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 25px;
+      outline: none;
+    }
+
+    .buttons-container {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px;
+    }
+
+    button {
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Lightbox Video Styles */
+    .video-popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .video-content {
+      position: relative;
+      background: white;
+      border-radius: 15px;
+      padding: 10px;
+      max-width: 90%;
+      max-height: 90%;
+    }
+
+    .video-content video {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 28px;
+      color: #333;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      color: red;
+    }
+  </style>
 </head>
 <body>
-  <header class="header">
-    <img src="logo-left.png" alt="NEU Logo" class="logo">
-    <div class="header-text">
-      <h1>PAGLALAKBAY SA HINABING TALUNTON</h1>
-      <p>Principles of Transportation Engineering • 3CE-1 & 3CE-2 Collaboration</p>
-    </div>
-    <img src="logo-right.png" alt="CEA Logo" class="logo">
+
+  <header>
+    <h1>My Project Portfolio</h1>
   </header>
 
-  <main>
-    <section class="search-bar">
-      <input type="text" placeholder="Search this site...">
-    </section>
+  <div class="search-container">
+    <input type="text" placeholder="Search projects...">
+  </div>
 
-    <section class="about">
-      <h2>About the Project</h2>
-      <p>This project explores ... [brief description]</p>
-      <button>Show More</button>
-    </section>
+  <div class="buttons-container">
+    <button onclick="openVideo()">Watch Video</button>
+    <button>Show More</button>
+  </div>
 
-    <section class="video">
-      <h2>Project Overview Video</h2>
-      <button onclick="openVideo()">▶ Watch Video</button>
-      <div id="videoPopup" class="video-popup">
-        <div class="video-content">
-          <span onclick="closeVideo()" class="close-btn">&times;</span>
-          <video controls>
-            <source src="project-overview.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-    </section>
-
-    <section class="team">
-      <h2>Meet the Team</h2>
-      <div class="team-grid">
-        <div class="card">
-          <h3>Roraldo, Dominic D.</h3>
-          <p>Role: Leader</p>
-        </div>
-        <div class="card">
-          <h3>Padala, Kieth Bryan O.</h3>
-          <p>Role: Assistant Leader</p>
-        </div>
-        <div class="card">
-          <h3>Abel, Mark Christian S.</h3>
-          <p>Role: Shadow Leader</p>
-        </div>
-        <!-- Add more cards as needed -->
-      </div>
-    </section>
-  </main>
+  <!-- Lightbox Video Player -->
+  <div id="videoPopup" class="video-popup" onclick="closeVideo(event)">
+    <div class="video-content" onclick="event.stopPropagation()">
+      <span class="close-btn" onclick="closeVideo(event)">&times;</span>
+      <video controls>
+        <source src="project-overview.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
 
   <script>
     function openVideo() {
       document.getElementById("videoPopup").style.display = "flex";
     }
 
-    function closeVideo() {
+    function closeVideo(event) {
       document.getElementById("videoPopup").style.display = "none";
     }
   </script>
+
 </body>
 </html>
