@@ -2,55 +2,332 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Paglalakbay sa Hinabing Talunton</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Group Project</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background: #e6f0ff;
+      color: #000;
+      padding: 1.5rem 1rem;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .title-block {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .title-block h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    .title-block p {
+      margin: 0.3rem 0 0;
+      font-size: 1rem;
+    }
+
+    .logos img {
+      height: 60px;
+    }
+
+    .search-section {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .search-bar {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      width: 250px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    main {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background: #0056b3;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #003f88;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    section {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .team h2, .member-list h2 {
+      text-align: center;
+    }
+
+    .member-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .member-card {
+      background: #0056b3;
+      color: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      flex: 1 1 250px;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      max-width: 350px;
+    }
+
+    .member-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .member-list ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(17, auto);
+      gap: 10px 40px;
+      max-width: 1000px;
+    }
+
+    .member-list li {
+      padding: 5px 0;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .overlay-content {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 700px;
+    }
+
+    .overlay-content video {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    mark {
+      background: yellow;
+    }
+
+    .highlight-strip {
+      position: fixed;
+      right: 0;
+      top: 100px;
+      background: transparent;
+      z-index: 9999;
+    }
+
+    .highlight-marker {
+      width: 10px;
+      height: 10px;
+      background: yellow;
+      margin: 3px 0;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #e6f0ff;
+      color: #000;
+      padding: 1rem;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <img src="images/school-logo.png" alt="School Logo" />
-    <h1>PAGLALAKBAY SA HINABING TALUNTON</h1>
-    <p>Principles of Transportation Engineering • 3CE-1 & 3CE-2 Collaboration</p>
-    <input type="text" id="searchInput" placeholder="Search this site..." />
-    <img src="images/cea-logo.png" alt="CEA Logo" />
+    <div class="header-content">
+      <div class="logos">
+        <img src="school-logo.png" alt="School Logo">
+      </div>
+      <div class="title-block">
+        <h1>PAGLALAKBAY SA HINABING TALUNTON</h1>
+        <p>Principles of Transportation Engineering · 3CE-2</p>
+      </div>
+      <div class="logos">
+        <img src="cea-logo.png" alt="CEA Logo">
+      </div>
+    </div>
+    <div class="search-section">
+      <input
+        type="text"
+        id="site-search"
+        class="search-bar"
+        placeholder="Search this site..."
+      />
+    </div>
   </header>
 
-  <section id="about">
-    <h2>About the Project</h2>
-    <p>This project explores ... [brief description]</p>
-    <button onclick="toggleMoreInfo()">Show More</button>
-    <div id="moreInfo" style="display:none;">
-      <p>This is the full description of the project, highlighting its objectives, scope, and the collaborative efforts between students.</p>
-    </div>
-  </section>
+  <main>
+    <section class="project-info">
+      <h2>About the Project</h2>
+      <p>This project explores transportation challenges and solutions across various landscapes, blending engineering and innovation.</p>
+      <button onclick="showMore()">Show More</button>
+      <div id="moreInfo" class="hidden">
+        <p>This expanded section explains how we conducted fieldwork, collected data, and applied transportation engineering principles in real-world scenarios. Collaboration, sustainability, and innovation were the key driving forces behind our project outcomes.</p>
+      </div>
+    </section>
 
-  <section class="video-container">
-    <h2>Project Overview Video</h2>
-    <video id="projectVideo" controls>
-      <source src="video.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-  </section>
+    <section class="project-video">
+      <h2>Project Overview Video</h2>
+      <button onclick="openVideo()">▶ Watch Video</button>
+      <div id="videoOverlay" class="overlay hidden">
+        <div class="overlay-content">
+          <video controls>
+            <source src="video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </section>
 
-  <section id="team">
-    <h2>Meet the Team</h2>
-    <div class="member-card">
-      <h3>Roraldo, Dominic D.</h3>
-      <p>Role: Leader</p>
-    </div>
-    <!-- Add more member cards as needed -->
-  </section>
+    <section class="team">
+      <h2>Meet the Team</h2>
+      <div class="member-grid">
+        <div class="member-card"><h3>Roraldo, Dominic D.</h3><p>Role: Leader</p></div>
+        <div class="member-card"><h3>Padala, Kieth Bryan O.</h3><p>Role: Assistant Leader</p></div>
+        <div class="member-card"><h3>Abel, Mark Christian S.</h3><p>Role: Shadow Leader</p></div>
+      </div>
+    </section>
 
-  <!-- Lightbox Overlay -->
-  <div id="lightbox" class="lightbox">
-    <div class="lightbox-content">
-      <video id="lightboxVideo" controls autoplay>
-        <source src="video.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
-  </div>
+    <section class="member-list">
+      <h2>Team Members</h2>
+      <ul>
+        <li>Agojayan III, Adriano T.</li>
+        <li>Bachoco, Ethan Marc A.</li>
+        <li>Balois, Andrie Florence C.</li>
+        <!-- Add the rest as needed -->
+      </ul>
+    </section>
+  </main>
 
-  <script src="script.js"></script>
+  <div class="highlight-strip" id="highlight-strip"></div>
+
+  <footer>
+    <p>© 2025 New Era University · 3CE-2</p>
+  </footer>
+
+  <script>
+    function showMore() {
+      document.getElementById("moreInfo").classList.toggle("hidden");
+    }
+
+    function openVideo() {
+      const overlay = document.getElementById("videoOverlay");
+      overlay.classList.remove("hidden");
+    }
+
+    function closeVideo() {
+      document.getElementById("videoOverlay").classList.add("hidden");
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const overlay = document.getElementById("videoOverlay");
+      overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) closeVideo();
+      });
+
+      const searchInput = document.getElementById("site-search");
+      searchInput.addEventListener("input", function () {
+        const query = this.value.toLowerCase();
+        const allContent = document.querySelectorAll("main section, .member-card");
+
+        // Clear previous highlights
+        document.querySelectorAll("mark").forEach(mark => {
+          const parent = mark.parentNode;
+          parent.replaceChild(document.createTextNode(mark.textContent), mark);
+          parent.normalize();
+        });
+
+        // Reset strip
+        const strip = document.getElementById("highlight-strip");
+        strip.innerHTML = "";
+
+        let matches = [];
+
+        allContent.forEach((section) => {
+          let html = section.innerHTML;
+
+          if (query && html.toLowerCase().includes(query)) {
+            const regex = new RegExp(`(${query})`, "gi");
+            html = html.replace(regex, '<mark>$1</mark>');
+            section.innerHTML = html;
+
+            const rect = section.getBoundingClientRect();
+            matches.push(section);
+          }
+
+          section.style.display = query === "" || section.innerText.toLowerCase().includes(query) ? "" : "none";
+        });
+
+        // Visual strip markers
+        matches.forEach(match => {
+          const marker = document.createElement("div");
+          marker.className = "highlight-marker";
+          marker.onclick = () => match.scrollIntoView({ behavior: "smooth" });
+          strip.appendChild(marker);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
