@@ -1,42 +1,66 @@
-function showMore() {
-  document.getElementById("moreInfo").classList.toggle("hidden");
+// Toggle "Show More" section
+function toggleMoreInfo() {
+  const moreInfo = document.getElementById('moreInfo');
+  if (moreInfo.style.display === 'none') {
+    moreInfo.style.display = 'block';
+  } else {
+    moreInfo.style.display = 'none';
+  }
 }
 
-function openVideo() {
-  document.getElementById("videoOverlay").classList.remove("hidden");
-}
+// Lightbox functionality
+document.getElementById('projectVideo').addEventListener('click', function() {
+  document.getElementById('lightbox').style.display = 'flex';
+});
 
-function closeVideo() {
-  const overlay = document.getElementById("videoOverlay");
-  const video = overlay.querySelector("video");
-  video.pause();
-  video.currentTime = 0;
-  overlay.classList.add("hidden");
-}
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (e.target === this) {
+    this.style.display = 'none';
+    const video = document.getElementById('lightboxVideo');
+    video.pause();
+    video.currentTime = 0;
+  }
+});
 
+// Search and highlight functionality
 document.addEventListener("DOMContentLoaded", () => {
-  const overlay = document.getElementById("videoOverlay");
-  overlay.addEventListener("click", (e) => {
-    const content = document.querySelector(".overlay-content");
-    if (!content.contains(e.target)) {
-      closeVideo();
-    }
-  });
+  const searchInput = document.getElementById("searchInput");
 
-  const searchInput = document.getElementById("site-search");
-  searchInput.addEventListener("input", function () {
-    const query = this.value.toLowerCase();
-    const sections = [...document.querySelectorAll(".member-card, .member-list li")];
-
-    sections.forEach((el) => {
-      const text = el.textContent.toLowerCase();
-      if (query === "" || text.includes(query)) {
-        el.style.display = "";
-        const inner = el.innerHTML.replace(/(<mark>|<\/mark>)/g, "");
-        el.innerHTML = inner.replace(new RegExp(`(${query})`, "gi"), "<mark>$1</mark>");
-      } else {
-        el.style.display = "none";
-      }
-    });
+  searchInput.addEventListener("input", () => {
+    const term = searchInput.value.trim();
+    removeHighlights(document.body);
+    if (term === "") return;
+    highlightText(document.body, term);
   });
 });
+
+function removeHighlights(container) {
+  const marks = container.querySelectorAll("mark");
+  marks.forEach(mark => {
+    const parent = mark.parentNode;
+    parent.replaceChild(document.createTextNode(mark.textContent), mark);
+    parent.normalize();
+  });
+}
+
+function highlightText(container, term) {
+  const regex = new RegExp(term, 'gi');
+  const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, null, false);
+  const nodes = [];
+
+  while (walker.nextNode()) {
+    nodes.push(walker.currentNode);
+  }
+
+  nodes.forEach(node => {
+    const parent = node.parentNode;
+    if (parent && parent.nodeName !== 'SCRIPT' && parent.nodeName !== 'STYLE') {
+      const matches = node.nodeValue.match(regex);
+      if (matches) {
+        const span = document.createElement('span');
+        span.innerHTML = node.nodeValue.replace(regex, match => `<mark>${match}</mark>`);
+        parent.replaceChild(span, node);
+      }
+    }
+  });
+}

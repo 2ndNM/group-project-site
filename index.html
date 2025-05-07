@@ -2,87 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Group Project</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Paglalakbay sa Hinabing Talunton</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
-    <div class="header-content">
-      <div class="logos">
-        <img src="school-logo.png" alt="School Logo" class="school-logo" />
-      </div>
-      <div class="title-block">
-        <h1>PAGLALAKBAY SA HINABING TALUNTON</h1>
-        <p>Principles of Transportation Engineering · 3CE-1 & 3CE-2 Collaboration</p>
-        <input type="text" id="site-search" class="search-bar" placeholder="Search this site..." />
-      </div>
-      <div class="logos">
-        <img src="cea-logo.png" alt="CEA Logo" class="cea-logo" />
-      </div>
-    </div>
+    <img src="images/school-logo.png" alt="School Logo" />
+    <h1>PAGLALAKBAY SA HINABING TALUNTON</h1>
+    <p>Principles of Transportation Engineering • 3CE-1 & 3CE-2 Collaboration</p>
+    <input type="text" id="searchInput" placeholder="Search this site..." />
+    <img src="images/cea-logo.png" alt="CEA Logo" />
   </header>
 
-  <main>
-    <!-- About Project -->
-    <section class="project-info">
-      <h2>About the Project</h2>
-      <p>This project explores ... [brief description]</p>
-      <button onclick="showMore()">Show More</button>
-      <div id="moreInfo" class="hidden">
-        <p>Here’s some extended info about the project. It can be toggled with JavaScript.</p>
-      </div>
-    </section>
+  <section id="about">
+    <h2>About the Project</h2>
+    <p>This project explores ... [brief description]</p>
+    <button onclick="toggleMoreInfo()">Show More</button>
+    <div id="moreInfo" style="display:none;">
+      <p>This is the full description of the project, highlighting its objectives, scope, and the collaborative efforts between students.</p>
+    </div>
+  </section>
 
-    <!-- Project Video -->
-    <section class="project-video">
-      <h2>Project Overview Video</h2>
-      <button onclick="openVideo()">▶ Watch Video</button>
-      <div id="videoOverlay" class="overlay hidden">
-        <div class="overlay-content">
-          <video controls>
-            <source src="video.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-    </section>
+  <section class="video-container">
+    <h2>Project Overview Video</h2>
+    <video id="projectVideo" controls>
+      <source src="video.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </section>
 
-    <!-- Meet the Team -->
-    <section class="team">
-      <h2>Meet the Team</h2>
-      <div class="member-grid">
-        <div class="member-card">
-          <h3>Roraldo, Dominic D.</h3>
-          <p>Role: Leader</p>
-        </div>
-        <div class="member-card">
-          <h3>Padala, Kieth Bryan O.</h3>
-          <p>Role: Assistant Leader</p>
-        </div>
-        <div class="member-card">
-          <h3>Abel, Mark Christian S.</h3>
-          <p>Role: Shadow Leader</p>
-        </div>
-      </div>
-    </section>
+  <section id="team">
+    <h2>Meet the Team</h2>
+    <div class="member-card">
+      <h3>Roraldo, Dominic D.</h3>
+      <p>Role: Leader</p>
+    </div>
+    <!-- Add more member cards as needed -->
+  </section>
 
-    <!-- Team Members -->
-    <section class="member-list">
-      <h2>Team Members</h2>
-      <ul>
-        <li>Agojayan III, Adriano T.</li>
-        <li>Bachoco, Ethan Marc A.</li>
-        <li>Balois, Andrie Florence C.</li>
-        <li>Barruga, Neil John M.</li>
-        <!-- Add the rest of the names here -->
-      </ul>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2025 New Era University · 3CE-2</p>
-  </footer>
+  <!-- Lightbox Overlay -->
+  <div id="lightbox" class="lightbox">
+    <div class="lightbox-content">
+      <video id="lightboxVideo" controls autoplay>
+        <source src="video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
