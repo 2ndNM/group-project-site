@@ -9,7 +9,6 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      line-height: 1.6;
       background: #f4f4f4;
       color: #333;
     }
@@ -50,24 +49,18 @@
       height: 60px;
     }
 
-    .search-section {
-      text-align: center;
-      margin-top: 1rem;
-    }
-
-    .search-bar {
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      width: 250px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-    }
-
     main {
       padding: 2rem;
       display: flex;
       flex-direction: column;
       gap: 2rem;
+    }
+
+    section {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
     button {
@@ -82,17 +75,6 @@
 
     button:hover {
       background: #003f88;
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-    section {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
     .team h2, .member-list h2 {
@@ -129,7 +111,6 @@
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(17, auto);
       gap: 10px 40px;
       max-width: 1000px;
     }
@@ -165,24 +146,8 @@
       border-radius: 8px;
     }
 
-    mark {
-      background: yellow;
-    }
-
-    .highlight-strip {
-      position: fixed;
-      right: 0;
-      top: 100px;
-      background: transparent;
-      z-index: 9999;
-    }
-
-    .highlight-marker {
-      width: 10px;
-      height: 10px;
-      background: yellow;
-      margin: 3px 0;
-      cursor: pointer;
+    .hidden {
+      display: none !important;
     }
 
     footer {
@@ -206,14 +171,6 @@
       <div class="logos">
         <img src="cea-logo.png" alt="CEA Logo">
       </div>
-    </div>
-    <div class="search-section">
-      <input
-        type="text"
-        id="site-search"
-        class="search-bar"
-        placeholder="Search this site..."
-      />
     </div>
   </header>
 
@@ -255,12 +212,53 @@
         <li>Agojayan III, Adriano T.</li>
         <li>Bachoco, Ethan Marc A.</li>
         <li>Balois, Andrie Florence C.</li>
-        <!-- Add the rest as needed -->
+        <li>Barruga, Neil John M.</li>
+        <li>Basco, Ronyl Jay V.</li>
+        <li>Bayanay, Ivan</li>
+        <li>Bendicio, Nympha D.</li>
+        <li>Bornalo, Izza Andrea</li>
+        <li>Cabanit, Vladimir Josh D.</li>
+        <li>Cabotaje, Theo-yuri A.</li>
+        <li>Caguioa, Alfonso E.</li>
+        <li>Clemen, Jericho P.</li>
+        <li>Coloma, Carlvon N.</li>
+        <li>Fernandez, Justin James M.</li>
+        <li>Forbile, Ria Jane Angela G.</li>
+        <li>Fuentes, Shan Michael E.</li>
+        <li>Gatus, Juliana Marcy P.</li>
+        <li>Gonzales, Daniel Ezekiel C.</li>
+        <li>Guergio, Rhea</li>
+        <li>Hababag Jr., Nelson D.</li>
+        <li>Ignacio, John Benedict</li>
+        <li>Junio, Aljhon S.</li>
+        <li>Juntado, Herra Sophia C.</li>
+        <li>Lapuz, Albert Vincent D.</li>
+        <li>Lorenzo, Roena Marie</li>
+        <li>Lupang, Bejay</li>
+        <li>Macapagao, Zed A.</li>
+        <li>Marcelino, Aaron C.</li>
+        <li>Martinez, Charlene Yvette S.</li>
+        <li>Masangkay, Trisha Kaye C.</li>
+        <li>Naive, Christian E.</li>
+        <li>Necosia, John Mark S.</li>
+        <li>Ngo, Linton Iii C.</li>
+        <li>Padernal, Jhon Rhio M.</li>
+        <li>Pascua, Michaella N.</li>
+        <li>Paulo, Marean Claudine C.</li>
+        <li>Ramos, Cedric James C.</li>
+        <li>Realisan Jr., Arthur R.</li>
+        <li>Rivera, Marc Joseph S.</li>
+        <li>Rodelas, Frencis Mae</li>
+        <li>Rodriguez, Hannah C.</li>
+        <li>SABERON, Paulyn D.</li>
+        <li>Salazar, Jhon Rey A.</li>
+        <li>San Jose, Miles Godwin</li>
+        <li>Sapinoso, Maureen Joi J.</li>
+        <li>Trinidad, Dency Nicole A.</li>
+        <li>Vega, Diencer C.</li>
       </ul>
     </section>
   </main>
-
-  <div class="highlight-strip" id="highlight-strip"></div>
 
   <footer>
     <p>© 2025 New Era University · 3CE-2</p>
@@ -283,49 +281,9 @@
     document.addEventListener("DOMContentLoaded", () => {
       const overlay = document.getElementById("videoOverlay");
       overlay.addEventListener("click", (e) => {
-        if (e.target === overlay) closeVideo();
-      });
-
-      const searchInput = document.getElementById("site-search");
-      searchInput.addEventListener("input", function () {
-        const query = this.value.toLowerCase();
-        const allContent = document.querySelectorAll("main section, .member-card");
-
-        // Clear previous highlights
-        document.querySelectorAll("mark").forEach(mark => {
-          const parent = mark.parentNode;
-          parent.replaceChild(document.createTextNode(mark.textContent), mark);
-          parent.normalize();
-        });
-
-        // Reset strip
-        const strip = document.getElementById("highlight-strip");
-        strip.innerHTML = "";
-
-        let matches = [];
-
-        allContent.forEach((section) => {
-          let html = section.innerHTML;
-
-          if (query && html.toLowerCase().includes(query)) {
-            const regex = new RegExp(`(${query})`, "gi");
-            html = html.replace(regex, '<mark>$1</mark>');
-            section.innerHTML = html;
-
-            const rect = section.getBoundingClientRect();
-            matches.push(section);
-          }
-
-          section.style.display = query === "" || section.innerText.toLowerCase().includes(query) ? "" : "none";
-        });
-
-        // Visual strip markers
-        matches.forEach(match => {
-          const marker = document.createElement("div");
-          marker.className = "highlight-marker";
-          marker.onclick = () => match.scrollIntoView({ behavior: "smooth" });
-          strip.appendChild(marker);
-        });
+        if (e.target === overlay) {
+          closeVideo();
+        }
       });
     });
   </script>
