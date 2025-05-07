@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Group Project</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #f3f3f3;
+      color: #333;
+    }
+
+    header {
+      background: #e4f0ff;
+      padding: 1rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .logos img {
+      height: 80px;
+    }
+
+    .title-block {
+      text-align: center;
+    }
+
+    .title-block h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    .title-block p {
+      margin: 0.2rem 0;
+    }
+
+    .search-section {
+      margin-top: 1rem;
+    }
+
+    .search-bar {
+      padding: 0.5rem 1rem;
+      width: 300px;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section {
+      margin-bottom: 2rem;
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #1d4ed8;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .project-video button,
+    .project-info button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background: #1d4ed8;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .overlay-content {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      max-width: 90%;
+      max-height: 80%;
+    }
+
+    .overlay video {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .team .member-card {
+      background: #f0f7ff;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      transition: background 0.3s;
+    }
+
+    .team .member-card:hover {
+      background: #dbeafe;
+    }
+
+    .member-list ul {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px 30px;
+    }
+
+    .member-list li {
+      padding: 4px 0;
+    }
+
+    mark {
+      background-color: #a3d3ff;
+      padding: 0 2px;
+      border-radius: 3px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #e4f0ff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <div class="logos"><img src="school-logo.png" alt="School Logo"></div>
+      <div class="title-block">
+        <h1>PAGLALAKBAY SA HINABING TALUNTON</h1>
+        <p>Principles of Transportation Engineering · 3CE-1 & 3CE-2 Collaboration</p>
+      </div>
+      <div class="logos"><img src="cea-logo.png" alt="CEA Logo"></div>
+    </div>
+    <div class="search-section">
+      <input type="text" id="site-search" class="search-bar" placeholder="Search this site..." />
+    </div>
+  </header>
+
+  <main>
+    <section class="project-info">
+      <h2>About the Project</h2>
+      <p>This project explores transportation principles and their application in real-life scenarios through a collaborative approach between sections.</p>
+      <button onclick="showMore()">Show More</button>
+      <div id="moreInfo" class="hidden">
+        <p>Here’s some extended info about the project. It can be toggled with JavaScript. We aim to analyze transportation systems with practical applications.</p>
+      </div>
+    </section>
+
+    <section class="project-video">
+      <h2>Project Overview Video</h2>
+      <button onclick="openVideo()">▶ Watch Video</button>
+    </section>
+
+    <div id="videoOverlay" class="overlay hidden">
+      <div class="overlay-content">
+        <video controls>
+          <source src="video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+    <section class="team">
+      <h2>Meet the Team</h2>
+      <div class="member-card">
+        <h3>Roraldo, Dominic D.</h3>
+        <p>Role: Leader</p>
+      </div>
+      <div class="member-card">
+        <h3>Padala, Kieth Bryan O.</h3>
+        <p>Role: Assistant Leader</p>
+      </div>
+      <div class="member-card">
+        <h3>Abel, Mark Christian S.</h3>
+        <p>Role: Shadow Leader</p>
+      </div>
+    </section>
+
+    <section class="member-list">
+      <h2>Team Members</h2>
+      <ul>
+        <li>Agojayan III, Adriano T.</li>
+        <li>Bachoco, Ethan Marc A.</li>
+        <li>Balois, Andrie Florence C.</li>
+        <li>Barruga, Neil John M.</li>
+        <li>Basco, Ronyl Jay V.</li>
+        <li>Bayanay, Ivan</li>
+        <li>Bendicio, Nympha D.</li>
+        <li>Bornalo, Izza Andrea</li>
+        <li>Cabanit, Vladimir Josh D.</li>
+        <li>Cabotaje, Theo-yuri A.</li>
+        <li>Caguioa, Alfonso E.</li>
+        <li>Clemen, Jericho P.</li>
+        <li>Coloma, Carlvon N.</li>
+        <li>Fernandez, Justin James M.</li>
+        <li>Forbile, Ria Jane Angela G.</li>
+        <li>Fuentes, Shan Michael E.</li>
+        <li>Gatus, Juliana Marcy P.</li>
+        <li>Gonzales, Daniel Ezekiel C.</li>
+        <li>Guergio, Rhea</li>
+        <li>Hababag Jr., Nelson D.</li>
+        <li>Ignacio, John Benedict</li>
+        <li>Junio, Aljhon S.</li>
+        <li>Juntado, Herra Sophia C.</li>
+        <li>Lapuz, Albert Vincent D.</li>
+        <li>Lorenzo, Roena Marie</li>
+        <li>Lupang, Bejay</li>
+        <li>Macapagao, Zed A.</li>
+        <li>Marcelino, Aaron C.</li>
+        <li>Martinez, Charlene Yvette S.</li>
+        <li>Masangkay, Trisha Kaye C.</li>
+        <li>Naive, Christian E.</li>
+        <li>Necosia, John Mark S.</li>
+        <li>Ngo, Linton Iii C.</li>
+        <li>Padernal, Jhon Rhio M.</li>
+        <li>Pascua, Michaella N.</li>
+        <li>Paulo, Marean Claudine C.</li>
+        <li>Ramos, Cedric James C.</li>
+        <li>Realisan Jr., Arthur R.</li>
+        <li>Rivera, Marc Joseph S.</li>
+        <li>Rodelas, Frencis Mae</li>
+        <li>Rodriguez, Hannah C.</li>
+        <li>SABERON, Paulyn D.</li>
+        <li>Salazar, Jhon Rey A.</li>
+        <li>San Jose, Miles Godwin</li>
+        <li>Sapinoso, Maureen Joi J.</li>
+        <li>Trinidad, Dency Nicole A.</li>
+        <li>Vega, Diencer C.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 New Era University · 3CE-2</p>
+  </footer>
+
+  <script>
+    function showMore() {
+      document.getElementById("moreInfo").classList.toggle("hidden");
+    }
+
+    function openVideo() {
+      document.getElementById("videoOverlay").classList.remove("hidden");
+    }
+
+    function closeVideo() {
+      document.getElementById("videoOverlay").classList.add("hidden");
+    }
+
+    function highlightMatches(text, query) {
+      const regex = new RegExp(`(${query})`, 'gi');
+      return text.replace(regex, '<mark>$1</mark>');
+    }
+
+    function clearHighlights(container) {
+      const marks = container.querySelectorAll('mark');
+      marks.forEach(mark => {
+        const parent = mark.parentNode;
+        parent.replaceChild(document.createTextNode(mark.textContent), mark);
+        parent.normalize();
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const overlay = document.getElementById("videoOverlay");
+      overlay.addEventListener("click", e => {
+        if (e.target === overlay) closeVideo();
+      });
+
+      const searchInput = document.getElementById("site-search");
+      const searchableSections = document.querySelectorAll(".member-card, .member-list, .project-info, .project-video");
+
+      searchInput.addEventListener("input", function () {
+        const query = this.value.trim().toLowerCase();
+
+        searchableSections.forEach(section => {
+          clearHighlights(section);
+          const text = section.textContent.toLowerCase();
+          const visible = query === "" || text.includes(query);
+          section.style.display = visible ? "" : "none";
+
+          if (visible && query !== "") {
+            const walker = document.createTreeWalker(section, NodeFilter.SHOW_TEXT, null, false);
+            while (walker.nextNode()) {
+              const node = walker.currentNode;
+              if (node.nodeValue.toLowerCase().includes(query)) {
+                const span = document.createElement("span");
+                span.innerHTML = highlightMatches(node.nodeValue, query);
+                node.parentNode.replaceChild(span, node);
+              }
+            }
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
