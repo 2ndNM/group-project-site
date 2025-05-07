@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Paglalakbay sa Hinabing Talunton</title>
   <style>
     body {
@@ -52,6 +52,7 @@
     }
     .highlight {
       background-color: yellow;
+      color: black;
     }
     .video-container {
       margin: 2rem auto;
@@ -60,6 +61,56 @@
     video {
       width: 100%;
       border-radius: 10px;
+      cursor: pointer;
+    }
+    button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .lightbox-content {
+      position: relative;
+      max-width: 80%;
+      max-height: 80%;
+    }
+    .lightbox-content video {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .scroll-indicator {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 10px;
+      height: 100%;
+      background-color: transparent;
+      z-index: 999;
+    }
+    .scroll-indicator .marker {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: yellow;
     }
   </style>
 </head>
@@ -83,55 +134,12 @@
 
   <section class="video-container">
     <h2>Project Overview Video</h2>
-    <video controls>
+    <video id="projectVideo" controls>
       <source src="video.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
   </section>
 
-  <section id="team">
-    <h2>Meet the Team</h2>
-    <div class="member-card leader">
-      <strong>Roraldo, Dominic D.</strong>
-      <p>Role: Leader</p>
-    </div>
-    <div class="member-card leader">
-      <strong>Padala, Kieth Bryan O.</strong>
-      <p>Role: Assistant Leader</p>
-    </div>
-    <div class="member-card leader">
-      <strong>Abel, Mark Christian S.</strong>
-      <p>Role: Shadow Leader</p>
-    </div>
-  </section>
-
-  <script>
-    function toggleMoreInfo() {
-      const moreInfo = document.getElementById("moreInfo");
-      moreInfo.style.display = (moreInfo.style.display === "none") ? "block" : "none";
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const searchInput = document.getElementById("searchInput");
-      const originalCards = Array.from(document.querySelectorAll(".member-card")).map(card => ({
-        element: card,
-        name: card.innerHTML
-      }));
-
-      searchInput.addEventListener("input", () => {
-        const term = searchInput.value.toLowerCase();
-        originalCards.forEach(({ element, name }) => {
-          const textContent = element.textContent.toLowerCase();
-          if (textContent.includes(term)) {
-            element.style.display = "";
-            const regex = new RegExp(`(${term})`, "gi");
-            element.innerHTML = name.replace(regex, "<span class='highlight'>$1</span>");
-          } else {
-            element.style.display = "none";
-          }
-        });
-      });
-    });
-  </script>
-</body>
-</html>
+  <section id="team
+::contentReference[oaicite:19]{index=19}
+ 
