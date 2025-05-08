@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,213 +9,191 @@
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background: #f4f4f4;
+      background: #f5f5f5;
+      color: #333;
     }
-
     header {
-      background: #d6eaff;
-      padding: 20px;
+      background: #e3f0ff;
+      padding: 1rem;
       text-align: center;
+      border-bottom: 2px solid #ccc;
     }
-
     header h1 {
       margin: 0;
-      font-size: 2em;
+      font-size: 2rem;
     }
-
     header p {
-      margin: 5px 0;
+      margin: 0.3rem 0 1rem;
     }
-
-    .search-bar {
-      margin: 15px auto;
-      display: flex;
-      justify-content: center;
+    section {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-
-    .search-bar input {
-      width: 60%;
-      padding: 10px;
-      border-radius: 25px;
-      border: 1px solid #ccc;
-    }
-
-    .section {
-      padding: 40px 20px;
+    h2 {
       text-align: center;
+      color: #003366;
     }
-
-    button {
-      background: #007BFF;
-      color: white;
-      border: none;
-      padding: 10px 20px;
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .gallery-grid img {
+      width: 100%;
       border-radius: 8px;
-      cursor: pointer;
-      font-size: 1em;
-      margin-top: 10px;
+      object-fit: cover;
     }
-
+    .faq-item + .faq-item {
+      margin-top: 1rem;
+    }
+    .faq-item h3 {
+      margin-bottom: 0.5rem;
+      color: #0056b3;
+    }
+    .team-card {
+      background: #f0f8ff;
+      margin: 1rem auto;
+      padding: 1rem;
+      border-radius: 8px;
+      width: 80%;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .team-members {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-around;
+    }
+    .team-member {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      flex: 1 1 30%;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .team-member:hover {
+      transform: scale(1.05);
+    }
+    button {
+      display: inline-block;
+      background-color: #007BFF;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
     button:hover {
       background-color: #0056b3;
     }
-
-    .team-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .team-member {
-      background: white;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      width: 250px;
-    }
-
-    .video-modal {
+    .video-lightbox {
       display: none;
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.8);
+      background: rgba(0, 0, 0, 0.7);
       justify-content: center;
       align-items: center;
       z-index: 9999;
     }
-
-    .video-modal video {
-      max-width: 90%;
-      max-height: 80%;
+    .video-lightbox video {
+      width: 90%;
+      max-width: 800px;
       border-radius: 12px;
     }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 15px;
-      margin-top: 30px;
-    }
-
-    .gallery img {
-      width: 100%;
-      border-radius: 10px;
-      object-fit: cover;
-    }
-
-    .faq {
-      text-align: left;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .faq h3 {
-      margin-top: 20px;
-      color: #333;
-    }
-
-    .faq p {
-      margin: 5px 0 20px;
-      color: #555;
-    }
-
   </style>
 </head>
 <body>
 
 <header>
   <h1>PAGLALAKBAY SA HINABING TALUNTON</h1>
-  <p>Principles of Transportation Engineering • 3CE-1 & 3CE-2 Collaboration</p>
+  <p>Principles of Transportation Engineering · 3CE-1 & 3CE-2 Collaboration</p>
 </header>
 
-<div class="search-bar">
-  <input type="text" placeholder="Search this site...">
-</div>
-
-<section class="section">
-  <h2>About the Project</h2>
-  <p>This project explores ... [brief description]</p>
-  <button onclick="alert('More info coming soon!')">Show More</button>
-</section>
-
-<section class="section">
-  <h2>Project Overview Video</h2>
-  <button onclick="openVideo()">▶ Watch Video</button>
-</section>
-
-<!-- Video Lightbox Modal -->
-<div class="video-modal" id="videoModal" onclick="closeVideo(event)">
-  <video id="projectVideo" controls>
-    <source src="your-video.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</div>
-
-<!-- Gallery Section -->
-<section class="section">
-  <h2>Gallery</h2>
-  <div class="gallery">
-    <img src="img1.jpg" alt="Gallery Image 1">
-    <img src="img2.jpg" alt="Gallery Image 2">
-    <img src="img3.jpg" alt="Gallery Image 3">
-    <img src="img4.jpg" alt="Gallery Image 4">
+<section class="gallery">
+  <h2>Project Gallery</h2>
+  <div class="gallery-grid">
+    <img src="gallery1.jpg" alt="Gallery Image 1">
+    <img src="gallery2.jpg" alt="Gallery Image 2">
+    <img src="gallery3.jpg" alt="Gallery Image 3">
+    <img src="gallery4.jpg" alt="Gallery Image 4">
   </div>
 </section>
 
-<!-- Meet the Team -->
-<section class="section">
+<section class="team-intro">
   <h2>Meet the Team</h2>
-  <div class="team-grid">
+  <div class="team-card">
+    <h3>Roraldo, Dominic D.</h3>
+    <p>Role: Leader</p>
+  </div>
+</section>
+
+<section class="team-members-section">
+  <h2>Team Members</h2>
+  <div class="team-members">
     <div class="team-member">
-      <h3>Roraldo, Dominic D.</h3>
-      <p>Role: Leader</p>
-    </div>
-    <div class="team-member">
-      <h3>Padala, Kieth Bryan O.</h3>
+      <strong>Padala, Kieth Bryan O.</strong>
       <p>Role: Assistant Leader</p>
     </div>
     <div class="team-member">
-      <h3>Abel, Mark Christian S.</h3>
+      <strong>Abel, Mark Christian S.</strong>
       <p>Role: Shadow Leader</p>
     </div>
     <!-- Add more members here -->
   </div>
 </section>
 
-<!-- FAQ Section -->
-<section class="section">
+<section class="faq">
   <h2>Frequently Asked Questions</h2>
-  <div class="faq">
-    <h3>What is this project about?</h3>
-    <p>This is a collaborative project showcasing the cultural and engineering aspects of transportation routes through creative storytelling.</p>
-
-    <h3>Who can access the site?</h3>
-    <p>Anyone interested in the project or involved in 3CE-1 and 3CE-2 classes can view it.</p>
-
-    <h3>Where can I find more information?</h3>
-    <p>You can contact the team or check the full documentation once available under "Show More".</p>
+  <div class="faq-item">
+    <h3>What is the purpose of this project?</h3>
+    <p>This project aims to explore real-world transportation engineering concepts through fieldwork and collaboration.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Who are the participants?</h3>
+    <p>The project is a collaboration between students from the 3CE-2 class at New Era University.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Where can I watch the full video presentation?</h3>
+    <p>The video presentation is available above in the "Project Overview Video" section.</p>
   </div>
 </section>
 
+<section class="project-video">
+  <h2>Project Overview Video</h2>
+  <button id="watchVideoBtn">▶ Watch Video</button>
+</section>
+
+<div class="video-lightbox" id="videoLightbox">
+  <video controls id="projectVideo">
+    <source src="video.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>
+
 <script>
-  function openVideo() {
-    document.getElementById('videoModal').style.display = 'flex';
-    document.getElementById('projectVideo').play();
-  }
+  const watchBtn = document.getElementById('watchVideoBtn');
+  const lightbox = document.getElementById('videoLightbox');
+  const video = document.getElementById('projectVideo');
 
-  function closeVideo(event) {
-    const modal = document.getElementById('videoModal');
-    const video = document.getElementById('projectVideo');
+  watchBtn.addEventListener('click', () => {
+    lightbox.style.display = 'flex';
+    video.play();
+  });
 
-    if (event.target === modal) {
-      modal.style.display = 'none';
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
       video.pause();
-      video.currentTime = 0;
+      lightbox.style.display = 'none';
     }
-  }
+  });
 </script>
 
 </body>
