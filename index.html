@@ -188,6 +188,11 @@
   color: #0056b3;
 }
 
+@media (max-width: 768px) {
+  .member-list ul {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 
     footer {
       background-color: #e6f0ff;
@@ -237,15 +242,17 @@
       </div>
     </section>
 
-    <section class="gallery">
+    <!-- Inside the Gallery Section -->
+<section class="gallery">
   <h2>Project Gallery</h2>
   <div class="gallery-grid">
-    <img src="gallery1.jpg" alt="Gallery Image 1">
-    <img src="gallery2.jpg" alt="Gallery Image 2">
-    <img src="gallery3.jpg" alt="Gallery Image 3">
-    <img src="gallery4.jpg" alt="Gallery Image 4">
+    <img src="gallery1.jpg" alt="Field survey at site 1" loading="lazy">
+    <img src="gallery2.jpg" alt="Team collaboration session" loading="lazy">
+    <img src="gallery3.jpg" alt="Transportation flow chart sketch" loading="lazy">
+    <img src="gallery4.jpg" alt="Group photo during data gathering" loading="lazy">
   </div>
 </section>
+
 	
     <section class="team">
       <h2>Meet the Team</h2>
